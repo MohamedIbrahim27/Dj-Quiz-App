@@ -1,0 +1,93 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-size: cover;
+    height: 100vh;
+    text-transform: capitalize;
+    
+}
+
+
+.conatiner{
+    color: azure;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.conatiner .row{
+    display: grid;
+    grid-template-columns: repeat(auto-fill ,minmax(280px,1fr));
+    padding-top: 100px;
+    gap: 20px;
+
+}
+
+.conatiner .row .exam,.information{
+    backdrop-filter: blur(10px);
+    background-color: rgba(16, 50, 242, 0.05);
+}
+
+.exam-name{
+    justify-content: center;
+    display: grid;
+    text-align: center;
+}
+
+h4,h6{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+h4{
+    font-size: 35px;
+
+}
+
+h6{
+    font-size: 25px;
+
+}
+
+.date{
+    text-align: center;
+}
+.join{
+    color: azure;
+    text-decoration: none;
+    font-size: 20px;
+    background: #cb28af;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    width: 116px;
+    text-align: center;
+    margin-bottom: 16px;
+    margin-top: 29px;
+}
+
+input{
+    width: 74%;
+    height: 34px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 56px;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+}
+
+.information{
+    text-align: center;
+    padding: 30px;
+    width: 50%;
+    margin: 0 auto;
+}

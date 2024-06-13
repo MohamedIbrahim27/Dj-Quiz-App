@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-image: url({% static '5172658.jpg' %});">
+    <div class="conatiner">
+        <input type="text">
+    </div>
+    <div class="conatiner" style="    margin-top: 50px;">
+        <div class="information" style="    width: 100%;">
+            <form class="update" method="POST">
+                {% csrf_token %}
+                <div class="formset-field" style="    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+                    {{form.as_p}}
+                </div>
+                <hr>
+                {{ formset.management_form }}
+                {% for subform in formset %}
+                    <p id="counter"></p>
+                    <div class="formset-field" style="    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+                        {{ subform.as_p }}  <!-- Render each subform's fields -->
+                    </div>
+                    <hr>
+                {% endfor %}
+                <button class="join" style="    font-size: 40px !important;
+                padding: 12px !important;    width: 215px;" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    <style>
+        #id_examquestion_set-0-TrueAsnwer,#id_examquestionfull_set-0-TrueAsnwer{
+            width: 125px;
+            font-size: 19px;
+            height: 40px;
+        }
+        input{
+            margin-top: 14px !important;
+        }
+        #counter{
+            font-size: 24px;
+            width: 130px;
+            border: 1px solid;
+            text-align: center;
+            border-radius: 10px;
+            padding: 4px;
+            margin: 0;
+            margin-top: 16px;
+        }
+        p{
+            margin: 0;
+            margin-top: 11px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all the counter elements
+            var counters = document.querySelectorAll('#counter');
+            
+            // Loop through each counter element
+            counters.forEach(function(counter, index) {
+                // Update the counter text to match the index (+1 for 1-based indexing)
+                counter.textContent = "Question " + (index + 1).toString();
+            });
+        });
+    </script>
+</body>
+</html>

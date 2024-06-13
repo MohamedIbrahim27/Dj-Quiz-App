@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+    <style>
+        .item .register p{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .item .register input {
+            background-color: #cbc0c0;
+            color: black;
+            padding: 5px;
+            font-size: 15px;
+            font-weight: 700;
+            border: 1px solid #eb796f;
+        }
+        .item .register span ,ul{
+            display: none;
+        }
+    </style>
+    <div class="conatiner" style="padding-top:200px;">
+        <div class="information">
+            <form style="display: grid;
+            gap: 15px;" class="register" method="POST">
+                {% csrf_token %}
+                <div style="margin: 0 auto;">
+                    <label style="display:block;margin-bottom: 5px;">username</label>
+                    {{form.username}}
+                </div>
+                <div style="margin: 0 auto;">
+                    <label style="display:block;margin-bottom: 5px;">password</label>
+                    {{form.password1}}
+                </div>
+                <div style="margin: 0 auto;">
+                    <label style="display:block;margin-bottom: 5px;">password2</label>
+                    {{form.password2}}
+                </div>
+                <button class="join" style="    font-size: 40px !important;
+                padding: 0px !important;    width: 41% !important; " type="submit">Register</button>
+            </form>
+            <p>Have an accounts ? <a href="{% url 'users:login' %}">Login</a></p>
+        </div>
+    </div>
+
+{% endblock body %}

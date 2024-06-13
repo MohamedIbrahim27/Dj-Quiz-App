@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="conatiner" style="    padding-top: 120px;">
+        <form action="{% url 'main:home' slug=request.user %}">
+            <input type="text" name="searchname" placeholder="Search ...">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    
+    <div class="conatiner">
+        <div class="row">
+            {% for quick in euiexemam  %}
+                <div class="exam">
+                    <div class="exam-name">
+                        <h4>{{quick.exam_name}}</h4>
+                        <h6>dr : mohamed ibrahim </h6>
+                    </div>
+                    <div class="date">
+                        <p>You end exam in : 10/2/2023 10:00 AM</p>
+                    </div>
+                    <hr style="    width: 50%;">
+                    <p style="    text-align: center;">Your Deree from 10 is </p>
+                    <a href="{% url 'main:Examupdatequicks' quick.id  %}" class="join" style="    font-size: 40px !important;
+                    padding: 0px !important;">Update</a>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="row">
+            {% for quick in fullExamm  %}
+                <div class="exam">
+                    <div class="exam-name">
+                        <h4>{{quick.exam_name}}</h4>
+                        <h6>dr : mohamed ibrahim </h6>
+                    </div>
+                    <div class="date">
+                        <p>You end exam in : 10/2/2023 10:00 AM</p>
+                    </div>
+                    <hr style="    width: 50%;">
+                    <p style="    text-align: center;">Your Deree from 10 is </p>
+                    <a href="{% url 'main:ExamupdateFulls' quick.id  %}" class="join" style="    font-size: 40px !important;
+                    padding: 0px !important;">Update</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body %}

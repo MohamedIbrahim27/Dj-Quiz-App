@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-image: url({% static '5172658.jpg' %});">
+    <nav>
+        <a href="/" style="text-decoration: none;"><img src="{% static 'mainphoto.png' %}" style="height: 100px;width: 100px;" alt=""></a>
+        <ul>
+            <li class="li1"><a href="/" style="color: white;text-decoration: none;">Home</a></li>
+            {% if user.is_authenticated %}
+                <li class="li2"><a href="{% url 'main:home' slug=request.user %}" style="color: white;text-decoration: none;">Admin Panal</a></li>
+            {% else %}
+                <li class="li3">You must be login to can add exam</li>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <li class="li4">Wellcome {{user.username}}</li>
+            {% else %}
+                <li class="li4"><a href="{% url 'users:login' %}" style="color: white;text-decoration: none;">Login</a></li>
+            {% endif %}
+                
+        </ul>
+    </nav>
+    {% block body %}
+        
+    {% endblock body %}
+        
+
+</body>
+</html>
